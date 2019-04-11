@@ -12,6 +12,8 @@ class ContributionsTableSeeder extends Seeder
      */
     public function run()
     {
+        Contribution::truncate();
+
         Contribution::create([
             'child_id' => 1,
             'sponsor_id' => 1,

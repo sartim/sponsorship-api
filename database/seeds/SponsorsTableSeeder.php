@@ -12,6 +12,8 @@ class SponsorsTableSeeder extends Seeder
      */
     public function run()
     {
+        Sponsor::truncate();
+
         Sponsor::create([
             'first_name' => 'Scarlet',
             'last_name' => 'Johanson',

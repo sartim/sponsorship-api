@@ -12,7 +12,6 @@ class UserRolesTableSeeder extends Seeder
      */
     public function run()
     {
-        // Let's clear the users table first
         UserRole::truncate();
 
         UserRole::create(['user_id' => 1, 'role_id' => 1]);

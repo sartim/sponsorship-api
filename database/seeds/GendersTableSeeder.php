@@ -12,6 +12,8 @@ class GendersTableSeeder extends Seeder
      */
     public function run()
     {
+        Gender::truncate();
+
         Gender::create(['name' => 'MALE']);
         Gender::create(['name' => 'FEMALE']);
         Gender::create(['name' => 'OTHER']);

@@ -12,6 +12,8 @@ class ChildSponsorsTableSeeder extends Seeder
      */
     public function run()
     {
+        ChildSponsor::truncate();
+
         ChildSponsor::create([
             'child_id' => 1,
             'sponsor_id' => 1

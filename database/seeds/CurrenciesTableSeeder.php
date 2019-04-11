@@ -12,6 +12,8 @@ class CurrenciesTableSeeder extends Seeder
      */
     public function run()
     {
+        Currency::truncate();
+
         Currency::create(['currency' => 'KES']);
         Currency::create(['currency' => 'Dollar']);
     }

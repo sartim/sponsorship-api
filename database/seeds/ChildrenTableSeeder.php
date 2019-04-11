@@ -12,6 +12,8 @@ class ChildrenTableSeeder extends Seeder
      */
     public function run()
     {
+        Child::truncate();
+
         Child::create([
             'first_name' => 'Pharis',
             'last_name' => 'Ouko',
