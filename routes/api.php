@@ -30,6 +30,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('child', 'ChildController@store');
     Route::put('child/{child}', 'ChildController@update');
     Route::delete('child/{child}', 'ChildController@delete');
+
+    // Sponsor routes
+    Route::get('sponsor', 'SponsorController@index');
+    Route::get('sponsor/{sponsor}', 'SponsorController@show');
+    Route::post('sponsor', 'SponsorController@store');
+    Route::put('sponsor/{sponsor}', 'SponsorController@update');
+    Route::delete('sponsor/{sponsor}', 'SponsorController@delete');
 });
 
 Route::post('register', 'Auth\RegisterController@register');
