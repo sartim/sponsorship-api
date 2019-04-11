@@ -12,10 +12,10 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
+        // Let's clear the users table first
         Role::truncate();
 
-        Role::create(
-            ['name' => 'SUPERUSER'], ['name' => 'ADMIN']
-        );
+        Role::create(['name' => 'SUPERUSER']);
+        Role::create(['name' => 'ADMIN']);
     }
 }
