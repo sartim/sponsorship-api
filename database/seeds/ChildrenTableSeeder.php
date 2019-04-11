@@ -14,19 +14,19 @@ class ChildrenTableSeeder extends Seeder
     {
         Child::create([
             'first_name' => 'Pharis',
-            'lastname' => 'Ouko',
+            'last_name' => 'Ouko',
             'date_of_birth' => '1997-10-12',
             'gender_id' => 1
         ]);
         Child::create([
             'first_name' => 'Ali',
-            'lastname' => 'Mohamed',
+            'last_name' => 'Mohamed',
             'date_of_birth' => '1995-01-03',
             'gender_id' => 1
         ]);
         Child::create([
             'first_name' => 'Susan',
-            'lastname' => 'Wanjiku',
+            'last_name' => 'Wanjiku',
             'date_of_birth' => '1995-06-20',
             'gender_id' => 2
         ]);
