@@ -17,11 +17,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('roles', 'RoleController@index');
-    Route::get('roles/{role}', 'RoleController@show');
-    Route::post('roles', 'RoleController@store');
-    Route::put('roles/{role}', 'RoleController@update');
-    Route::delete('roles/{role}', 'RoleController@delete');
+    // Role routes
+    Route::get('role', 'RoleController@index');
+    Route::get('role/{role}', 'RoleController@show');
+    Route::post('role', 'RoleController@store');
+    Route::put('role/{role}', 'RoleController@update');
+    Route::delete('role/{role}', 'RoleController@delete');
+
+    // Child routes
+    Route::get('child', 'ChildController@index');
+    Route::get('child/{child}', 'ChildController@show');
+    Route::post('child', 'ChildController@store');
+    Route::put('child/{child}', 'ChildController@update');
+    Route::delete('child/{child}', 'ChildController@delete');
 });
 
 Route::post('register', 'Auth\RegisterController@register');
