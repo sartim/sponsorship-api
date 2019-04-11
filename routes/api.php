@@ -53,11 +53,18 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('gender/{gender}', 'GenderController@delete');
 
     // User routes
-    Route::get('user', 'Userontroller@index');
+    Route::get('user', 'UserController@index');
     Route::get('user/{user}', 'UserController@show');
     Route::post('user', 'UserController@store');
     Route::put('user/{user}', 'UserController@update');
     Route::delete('user/{user}', 'UserController@delete');
+
+    // UserRole routes
+    Route::get('user/role', 'UserRoleController@index');
+    Route::get('user/role/{user}', 'UserRoleController@show');
+    Route::post('user/role', 'UserRoleController@store');
+    Route::put('user/role/{user}', 'UserRoleController@update');
+    Route::delete('user/role/{user}', 'UserRoleController@delete');
 });
 
 Route::post('register', 'Auth\RegisterController@register');
