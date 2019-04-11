@@ -44,6 +44,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('currency', 'CurrencyController@store');
     Route::put('currency/{currency}', 'CurrencyController@update');
     Route::delete('currency/{currency}', 'CurrencyController@delete');
+
+    // Gender routes
+    Route::get('gender', 'GenderController@index');
+    Route::get('gender/{gender}', 'GenderController@show');
+    Route::post('gender', 'GenderController@store');
+    Route::put('gender/{gender}', 'GenderController@update');
+    Route::delete('gender/{gender}', 'GenderController@delete');
 });
 
 Route::post('register', 'Auth\RegisterController@register');
