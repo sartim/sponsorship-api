@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contribution;
 use Illuminate\Http\Request;
 
 class ContributionController extends Controller
