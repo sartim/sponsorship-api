@@ -37,6 +37,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('sponsor', 'SponsorController@store');
     Route::put('sponsor/{sponsor}', 'SponsorController@update');
     Route::delete('sponsor/{sponsor}', 'SponsorController@delete');
+
+    // Currency routes
+    Route::get('currency', 'CurrencyController@index');
+    Route::get('currency/{currency}', 'CurrencyController@show');
+    Route::post('currency', 'CurrencyController@store');
+    Route::put('currency/{currency}', 'CurrencyController@update');
+    Route::delete('currency/{currency}', 'CurrencyController@delete');
 });
 
 Route::post('register', 'Auth\RegisterController@register');
