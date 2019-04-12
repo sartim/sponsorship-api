@@ -17,7 +17,8 @@ class ChildController extends Controller
 
     public function show(Child $child)
     {
-        return $child;
+        $r = Child::with(['gender'])->find($child['id']);
+        return $r;
     }
 
     public function store(Request $request)
