@@ -15,6 +15,17 @@ class ChildController extends Controller
         return $children;
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->query('q');
+        # TODO Update to Full test search using something like elastic search
+        $query= Child::query()
+            ->whereLike('first_name', $search)
+            ->whereLike('last_name', $search)
+            ->get();
+        return $query;
+    }
+
     public function show(Child $child)
     {
         $r = Child::with(['gender'])->find($child['id']);
