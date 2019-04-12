@@ -18,7 +18,7 @@ class ChildController extends Controller
     public function search(Request $request)
     {
         $search = $request->query('q');
-        # TODO Update to Full test search using something like elastic search
+        # TODO Update to Full text search using something like elastic search
         $query= Child::query()
             ->whereLike('first_name', $search)
             ->whereLike('last_name', $search)
