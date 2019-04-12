@@ -15,11 +15,26 @@ class CreateContributionsTable extends Migration
     {
         Schema::create('contributions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('child_id')->index()->foreign()->references('id')->on('children')->onDelete('cascade');
-            $table->integer('sponsor_id')->index()->foreign()->references('id')->on('sponsors')->onDelete('cascade');
-            $table->integer('currency_id')->index()->foreign()->references('id')->on('currencies')->onDelete('cascade');
+            $table->integer('child_id');
+            $table->integer('sponsor_id');
+            $table->integer('currency_id');
             $table->decimal('contribution', 18, 2);
             $table->timestamps();
+
+            $table->foreign('child_id')
+                ->references('id')
+                ->on('children')
+                ->onDelete('cascade');
+
+            $table->foreign('sponsor_id')
+                ->references('id')
+                ->on('sponsors')
+                ->onDelete('cascade');
+
+            $table->foreign('currency_id')
+                ->references('id')
+                ->on('currencies')
+                ->onDelete('cascade');
         });
     }
 
