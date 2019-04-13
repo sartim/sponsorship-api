@@ -15,11 +15,14 @@ class ContributionController extends Controller
         return $contributions;
     }
 
-    public function showChildMonthlyContribution(Child $child)
+    public function showChildMonthlyContribution(Request $request)
     {
+        $child_id = $request->query('child_id');
+        $year = $request->query('year');
         $data = DB::table('contributions')
             ->select(DB::raw("SUM(contribution) as contribution, to_char(to_timestamp (date_part('month', created_at)::text, 'MM'), 'TMmon') AS month"))
-            ->whereRaw('child_id = ?',[$child['id']])
+            ->whereRaw('child_id = ?',[$child_id])
+            ->whereRaw('EXTRACT(year FROM "created_at") = ?',[$year])
             ->groupBy(DB::raw("month"))
             ->get();
 
