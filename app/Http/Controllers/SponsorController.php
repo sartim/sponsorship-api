@@ -17,7 +17,6 @@ class SponsorController extends Controller
         $search = $request->query('q');
         # TODO Update to Full text search using something like elastic search
         $query= Sponsor::query()
-            ->with(['gender'])
             ->whereLike('first_name', $search)
             ->whereLike('last_name', $search)
             ->whereLike('email', $search)
