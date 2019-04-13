@@ -18,7 +18,7 @@ class CreateChildrenTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('date_of_birth')->nullable(true);
-            $table->integer('gender_id')->index()->foreign()->references('id')->on('genders')->onDelete('cascade');
+            $table->integer('gender_id')->index()->nullable(true)->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->timestamps();
         });
     }
