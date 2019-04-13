@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Child;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChildController extends Controller
 {
@@ -13,6 +14,26 @@ class ChildController extends Controller
 //        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
 //        $out->writeln($children);
         return $children;
+    }
+
+    public function yearlyContribution(Request $request) {
+        $child_id = $request->query('child_id');
+        $data = DB::table('contributions')
+            ->select(DB::raw("SUM(contribution) as contribution, extract(year from created_at) AS year"))
+            ->whereRaw('child_id = ?',[$child_id])
+            ->groupBy(DB::raw("year"))
+            ->get();
+
+        $output = array();
+        foreach($data as $obj){
+            array_push($output, array(
+                    'year' =>intval($obj->year),
+                    'contribution' => intval($obj->contribution)
+                )
+            );
+
+        }
+        return $output;
     }
 
     public function search(Request $request)
