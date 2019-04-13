@@ -54,6 +54,11 @@ class ContributionController extends Controller
         return (new Contribution)->getThisMonth();
     }
 
+    public function childContributions()
+    {
+        return (new Contribution)->getchildContributions();
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
