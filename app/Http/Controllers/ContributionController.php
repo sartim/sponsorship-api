@@ -2,42 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Child;
 use App\Contribution;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ContributionController extends Controller
 {
+    /**
+     * Retrieve Contributions list
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function index()
     {
         $contributions = Contribution::with(['sponsor','child'])->get();
         return $contributions;
     }
 
-    public function showChildMonthlyContribution(Request $request)
-    {
-        $child_id = $request->query('child_id');
-        $year = $request->query('year');
-        $data = DB::table('contributions')
-            ->select(DB::raw("SUM(contribution) as contribution, to_char(to_timestamp (date_part('month', created_at)::text, 'MM'), 'TMmon') AS month"))
-            ->whereRaw('child_id = ?',[$child_id])
-            ->whereRaw('EXTRACT(year FROM "created_at") = ?',[$year])
-            ->groupBy(DB::raw("month"))
-            ->get();
-
-        $output = array();
-        foreach($data as $obj){
-            array_push($output, array(
-                'contribution' =>intval($obj->contribution),
-                'month' => $obj->month
-                )
-            );
-
-        }
-        return $output;
+    /**
+     * Retrieve monthly contributions list by year
+     * @return array
+     */
+    public function monthly() {
+        return (new Contribution)->getMonthly();
     }
 
+    /**
+     * Retrieve yearly contributions list
+     * @return array
+     */
+    public function yearly() {
+        return (new Contribution)->getYearly();
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request)
     {
         $contribution = Contribution::create($request->all());
@@ -45,6 +44,11 @@ class ContributionController extends Controller
         return response()->json($contribution, 201);
     }
 
+    /**
+     * @param Request $request
+     * @param Contribution $contribution
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Request $request, Contribution $contribution)
     {
         $contribution->update($request->all());
@@ -52,6 +56,11 @@ class ContributionController extends Controller
         return response()->json($contribution, 200);
     }
 
+    /**
+     * @param Contribution $contribution
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
     public function delete(Contribution $contribution)
     {
         $contribution->delete();
