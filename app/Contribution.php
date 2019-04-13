@@ -87,4 +87,12 @@ class Contribution extends Model
             ->get();
         return $data;
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getchildContributions() {
+        $data = Contribution::with(['sponsor', 'child'])->orderByDesc('created_at')->get();
+        return $data;
+    }
 }
