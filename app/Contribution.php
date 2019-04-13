@@ -38,7 +38,7 @@ class Contribution extends Model
         foreach($data as $obj){
             array_push($output, array(
                     'contribution' =>intval($obj->contribution),
-                    'year' => intval($obj->year)
+                    'year' => $obj->year
                 )
             );
 
