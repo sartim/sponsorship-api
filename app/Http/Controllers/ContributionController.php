@@ -45,6 +45,24 @@ class ContributionController extends Controller
     }
 
     /**
+     * Retrieve total sum of contributions
+     * @return mixed
+     */
+    public function total()
+    {
+        return (new Contribution)->getTotal();
+    }
+
+    /**
+     * Retrieve total sum for the current month
+     * @return \Illuminate\Support\Collection
+     */
+    public function thisMonth()
+    {
+        return (new Contribution)->getThisMonth();
+    }
+
+    /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
