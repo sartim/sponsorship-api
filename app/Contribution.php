@@ -67,4 +67,23 @@ class Contribution extends Model
         }
         return $output;
     }
+
+    public function getByYear($year) {
+        $data = DB::table('contributions')
+            ->select(DB::raw("SUM(contribution) AS contribution, extract(year from created_at) AS year"))
+            ->whereRaw('EXTRACT(year FROM "created_at") = ?',[$year])
+            ->groupBy(DB::raw("year"))
+            ->get();
+
+        $output = array();
+        foreach($data as $obj){
+            array_push($output, array(
+                    'contribution' =>intval($obj->contribution),
+                    'year' => $obj->year
+                )
+            );
+
+        }
+        return $output;
+    }
 }
