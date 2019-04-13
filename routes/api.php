@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Child routes
     Route::get('child', 'ChildController@index');
+    Route::get('child/yearly/contribution', 'ChildController@yearlyContribution');
     Route::get('child/search', 'ChildController@search');
     Route::get('child/{child}', 'ChildController@show');
     Route::post('child', 'ChildController@store');
