@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('contribution/monthly', 'ContributionController@monthly');
     Route::get('contribution/yearly', 'ContributionController@yearly');
     Route::get('contribution', 'ContributionController@byYear');
+    Route::post('contribution', 'ContributionController@store');
     Route::get('child/contribution/{child}', 'ContributionController@childContributions');
     Route::get('contribution/total', 'ContributionController@total');
     Route::get('contribution/this-month', 'ContributionController@thisMonth');
