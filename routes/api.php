@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Sponsor routes
     Route::get('sponsor', 'SponsorController@index');
+    Route::get('sponsor/search', 'SponsorController@search');
     Route::get('sponsor/{sponsor}', 'SponsorController@show');
     Route::post('sponsor', 'SponsorController@store');
     Route::put('sponsor/{sponsor}', 'SponsorController@update');
