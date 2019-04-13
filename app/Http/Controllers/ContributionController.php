@@ -34,6 +34,17 @@ class ContributionController extends Controller
     }
 
     /**
+     * Retrieve contributions by year
+     * @param Request $request
+     * @return array
+     */
+    public function byYear(Request $request)
+    {
+        $year = $request->query('year');
+        return (new Contribution)->getByYear($year);
+    }
+
+    /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
