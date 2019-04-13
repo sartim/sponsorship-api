@@ -18,6 +18,15 @@ class ContributionController extends Controller
     }
 
     /**
+     * @param Contribution $contribution
+     * @return Contribution
+     */
+    public function show(Contribution $contribution)
+    {
+        return $contribution;
+    }
+
+    /**
      * Retrieve yearly contributions list
      * @return array
      */
