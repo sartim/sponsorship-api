@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Contribution routes
     Route::get('contribution/yearly', 'ContributionController@monthly');
     Route::get('contribution/monthly', 'ContributionController@yearly');
+    Route::get('contribution', 'ContributionController@byYear');
 
 
     // Gender routes
