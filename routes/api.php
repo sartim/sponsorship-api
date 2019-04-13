@@ -47,6 +47,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('currency/{currency}', 'CurrencyController@update');
     Route::delete('currency/{currency}', 'CurrencyController@delete');
 
+    // Contribution routes
+    Route::get('contribution/monthly/{child}', 'ContributionController@showChildMonthlyContribution');
+
+
     // Gender routes
     Route::get('gender', 'GenderController@index');
     Route::get('gender/{gender}', 'GenderController@show');
