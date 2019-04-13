@@ -25,28 +25,6 @@ class Contribution extends Model
     }
 
     /**
-     * Retrieve monthly contributions
-     * @return array
-     */
-    public function getMonthly()
-    {
-        $data = DB::table('contributions')
-            ->select(DB::raw("SUM(contribution) AS contribution, extract(year from created_at) AS year"))
-            ->groupBy(DB::raw("year"))
-            ->get();
-        $output = array();
-        foreach($data as $obj){
-            array_push($output, array(
-                    'contribution' =>intval($obj->contribution),
-                    'year' => $obj->year
-                )
-            );
-
-        }
-        return $output;
-    }
-
-    /**
      * Retrieve yearly contributions
      * @return array
      */
