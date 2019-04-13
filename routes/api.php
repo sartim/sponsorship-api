@@ -50,8 +50,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('currency/{currency}', 'CurrencyController@delete');
 
     // Contribution routes
-    Route::get('contribution/yearly', 'ContributionController@monthly');
-    Route::get('contribution/monthly', 'ContributionController@yearly');
+    Route::get('contribution/monthly', 'ContributionController@monthly');
+    Route::get('contribution/yearly', 'ContributionController@yearly');
     Route::get('contribution', 'ContributionController@byYear');
     Route::get('contribution/total', 'ContributionController@total');
     Route::get('contribution/this-month', 'ContributionController@thisMonth');
