@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Child routes
     Route::get('child', 'ChildController@index');
+    Route::get('child/monthly/contribution', 'ChildController@monthlyContribution');
     Route::get('child/yearly/contribution', 'ChildController@yearlyContribution');
     Route::get('child/search', 'ChildController@search');
     Route::get('child/{child}', 'ChildController@show');
@@ -49,7 +50,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('currency/{currency}', 'CurrencyController@delete');
 
     // Contribution routes
-    Route::get('contribution/monthly', 'ContributionController@showChildMonthlyContribution');
+    Route::get('contribution/yearly', 'ContributionController@monthly');
+    Route::get('contribution/monthly', 'ContributionController@yearly');
 
 
     // Gender routes
