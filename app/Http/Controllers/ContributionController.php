@@ -18,14 +18,6 @@ class ContributionController extends Controller
     }
 
     /**
-     * Retrieve monthly contributions list by year
-     * @return array
-     */
-    public function monthly() {
-        return (new Contribution)->getMonthly();
-    }
-
-    /**
      * Retrieve yearly contributions list
      * @return array
      */
