@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Contribution routes
     Route::get('contribution/list', 'CurrencyController@index');
-    Route::get('contribution/{contribution}', 'CurrencyController@show');
+    Route::get('contribution/detail/{contribution}', 'CurrencyController@show');
     Route::get('contribution/monthly', 'ContributionController@monthly');
     Route::get('contribution/yearly', 'ContributionController@yearly');
     Route::get('contribution', 'ContributionController@byYear');
