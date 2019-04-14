@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Child;
 use App\Contribution;
 use Illuminate\Http\Request;
 
@@ -63,9 +64,9 @@ class ContributionController extends Controller
         return (new Contribution)->getThisMonth();
     }
 
-    public function childContributions()
+    public function childContributions(Child $child)
     {
-        return (new Contribution)->getchildContributions();
+        return (new Contribution)->getchildContributions($child);
     }
 
     /**
