@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('child/contribution/{child}', 'ContributionController@childContributions');
     Route::get('contribution/total', 'ContributionController@total');
     Route::get('contribution/this-month', 'ContributionController@thisMonth');
+    Route::delete('contribution/{contribution}', 'ContributionController@delete');
 
 
     // Gender routes
