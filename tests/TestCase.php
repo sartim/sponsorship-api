@@ -13,6 +13,7 @@ abstract class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
+        Artisan::call('key:generate');
         Artisan::call('db:seed');
     }
 }
