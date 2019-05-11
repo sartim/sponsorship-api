@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Child;
+use App\Gender;
 use App\User;
 use Tests\TestCase;
 
@@ -45,6 +46,7 @@ class ChildTest extends TestCase
         $user = factory(User::class)->create();
         $token = $user->generateToken();
         $headers = ['Authorization' => "Bearer $token"];
+        $gender = factory(Gender::class)->create();
         $child = factory(Child::class)->create([
             'first_name' => 'Test',
             'last_name' => 'Child',
