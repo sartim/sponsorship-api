@@ -13,6 +13,8 @@ abstract class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
+        $env = system('touch .env', $retval);
+        Artisan::call('key:generate');
         Artisan::call('db:seed');
     }
 }

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Child;
+use App\Gender;
 use App\User;
 use Tests\TestCase;
 
@@ -45,6 +46,7 @@ class ChildTest extends TestCase
         $user = factory(User::class)->create();
         $token = $user->generateToken();
         $headers = ['Authorization' => "Bearer $token"];
+        $gender = factory(Gender::class)->create();
         $child = factory(Child::class)->create([
             'first_name' => 'Test',
             'last_name' => 'Child',
@@ -122,13 +124,11 @@ class ChildTest extends TestCase
                     'first_name' => 'Test',
                     'last_name' => 'Child1',
                     'date_of_birth' => '1997-04-01',
-                    'gender_id' => 1,
                 ],
                 [
                     'first_name' => 'Test',
                     'last_name' => 'Child2',
-                    'date_of_birth' => '1996-04-01',
-                    'gender_id' => 2,
+                    'date_of_birth' => '1996-04-01'
                 ]
             )
             ->assertJsonStructure([
