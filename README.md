@@ -1,5 +1,8 @@
 # SPONSORSHIP API
 
+[![Build Status](https://travis-ci.com/sartim/sponsorship-api.svg?branch=master)](https://travis-ci.com/sartim/sponsorship-api)
+
+
 REST API for administering child sponsorship constributions.
 
 #### Setup
