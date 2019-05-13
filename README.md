@@ -1,5 +1,6 @@
 # SPONSORSHIP API
 
+[![Language](https://img.shields.io/badge/language-php-green.svg)](https://github.com/sartim/flask_shop_api)
 [![Build Status](https://travis-ci.com/sartim/sponsorship-api.svg?branch=master)](https://travis-ci.com/sartim/sponsorship-api)
 
 
