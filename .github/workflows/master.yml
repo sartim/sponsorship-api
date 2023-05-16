@@ -18,7 +18,9 @@ jobs:
           sudo apt-get update &&
           sudo apt install zip
       - name: Install Composer Dependencies
-        run: composer install
+        run: |
+          composer self-update --1
+          composer install
       - name: Run Scripts
         run: |
           chmod +x scripts/create_dotenv.sh
