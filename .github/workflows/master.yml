@@ -24,7 +24,7 @@ jobs:
       - name: Run Scripts
         run: |
           chmod +x scripts/create_dotenv.sh
-          scripts/create_dot_env.sh
+          scripts/create_dotenv.sh
         env:
           APP_NAME: ${{secrets.APP_NAME}}
           APP_ENV: ${{secrets.APP_ENV}}
