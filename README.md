@@ -1,7 +1,7 @@
 # SPONSORSHIP API
 
 [![Language](https://img.shields.io/badge/language-php-green.svg)](https://github.com/sartim/sponsorship-api)
-[![Build Status](https://github.com/sartim/sponsorship-api/workflows/build/badge.svg)](https://github.com/sartim/sponsorship-api)
+[![Build Status](https://github.com/sartim/sponsorship-api/workflows/prod-build/badge.svg)](https://github.com/sartim/sponsorship-api)
 
 
 REST API for administering child sponsorship constributions.
